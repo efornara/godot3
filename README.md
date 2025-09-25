@@ -8,6 +8,6 @@ Branches:
 - **godot**: Godot stable releases as they come from upstream, but without commit
   histories.
 - **frt**: Minor changes to the godot branch to unlock features and avoid hacks
-  when compiling frt. [diff](https://github.com/efornara/pupazzi/compare/godot...frt)
+  when compiling frt. [diff](https://github.com/efornara/godot3/compare/godot...frt)
 - **master**: Might be used for something more interesting later. Right now,
   a more helpful landing page.
