@@ -65,6 +65,25 @@ void OS_JavaScript::request_quit_callback() {
 	}
 }
 
+Error OS_JavaScript::get_entropy(uint8_t *r_buffer, int p_bytes) {
+	// `getentropy()` wasn't implemented in Emscripten before 2.0.5.
+#if defined(__EMSCRIPTEN_major__) && (__EMSCRIPTEN_major__ < 2 || (__EMSCRIPTEN_major__ == 2 && __EMSCRIPTEN_minor__ == 0 && __EMSCRIPTEN_tiny__ < 5))
+	int ret = godot_js_os_internal_getentropy(r_buffer, p_bytes);
+	ERR_FAIL_COND_V(ret, FAILED);
+	return OK;
+#else
+	int left = p_bytes;
+	int ofs = 0;
+	do {
+		int chunk = MIN(left, 256);
+		ERR_FAIL_COND_V(getentropy(r_buffer + ofs, chunk), FAILED);
+		left -= chunk;
+		ofs += chunk;
+	} while (left > 0);
+	return OK;
+#endif
+}
+
 bool OS_JavaScript::tts_is_speaking() const {
 	ERR_FAIL_COND_V_MSG(!tts, false, "Enable the \"audio/general/text_to_speech\" project setting to use text-to-speech.");
 	return godot_js_tts_is_speaking();
