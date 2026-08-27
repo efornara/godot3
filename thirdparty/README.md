@@ -191,7 +191,7 @@ Files extracted from upstream source:
 ## libpng
 
 - Upstream: http://libpng.org/pub/png/libpng.html
-- Version: 1.6.43 (ed217e3e601d8e462f7fd1e04bed43ac42212429, 2024)
+- Version: 1.6.58 (3061454d980de7d53608f594194cfac722721d2a, 2026)
 - License: libpng/zlib
 
 Files extracted from upstream source:
@@ -284,7 +284,7 @@ Files extracted from upstream source:
 ## mbedtls
 
 - Upstream: https://github.com/Mbed-TLS/mbedtls
-- Version: 3.6.5 (e185d7fd85499c8ce5ca2a54f5cf8fe7dbe3f8df, 2025)
+- Version: 3.6.7 (068ff080b369adfac81509f9b57b2afabaf82dc5, 2026)
 - License: Apache 2.0
 
 File extracted from upstream release tarball:
